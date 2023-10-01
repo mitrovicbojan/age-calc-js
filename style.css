@@ -23,31 +23,55 @@ input {
   outline-color: var(--purple);
   border-radius: 5px;
   border: 1px solid var(--light-grey);
+  width: 80%;
 }
 form {
-  width: 350px;
+  width: auto;
   background-color: var(--white);
   border-radius: 15px 15px 80px 15px;
-  margin-top: 2rem;
+  margin: 2rem 2rem 2rem 2rem;
 }
 .button {
+  position: absolute;
   border-radius: 50%;
   background-color: var(--purple);
   padding: 1rem;
   border: none;
   cursor: pointer;
+  margin-top: -40px;
+}
+.button:hover {
+  background-color: var(--off-black);
 }
 .outputs {
   font-size: 32px;
   font-weight: 900;
   font-style: italic;
+  margin-top: 5rem;
 }
 .output-spans {
   color: var(--purple);
 }
-.button:hover {
-  background-color: var(--off-black);
-}
+
 .error {
   color: var(--light-red);
+  font-size: 12px;
+}
+
+.container {
+  max-width: 650px;
+  border: 2px solid red;
+  padding: 1rem;
+  margin: 1rem;
+}
+.inputs {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.sub {
+  border-bottom: 1px solid var(--light-grey);
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
 }
