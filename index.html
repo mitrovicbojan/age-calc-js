@@ -19,16 +19,19 @@
       <div class="container" id="container">
         <div class="inputs" id="inputs">
           <div class="day">
-            <label>Day</label>
+            <label id="label">Day</label>
             <input id="day" />
+            <p class="error" id="error-day">Must be a valid day</p>
           </div>
           <div class="month">
-            <label>Month</label>
+            <label id="label">Month</label>
             <input id="month" />
+            <p class="error" id="error-month">Must be a valid month</p>
           </div>
           <div class="year">
-            <label>Year</label>
+            <label id="label">Year</label>
             <input id="year" />
+            <p class="error" id="error-year">Must be in the past</p>
           </div>
         </div>
         <button class="button" id="btn" type="button">
@@ -39,7 +42,17 @@
             id="arrow-img"
           />
         </button>
-        <div class="outputs" id="outputs"></div>
+        <div class="outputs" id="outputs">
+          <div class="year-output">
+            <span class="output-spans" id="year-span">--</span>years
+          </div>
+          <div class="month-output">
+            <span class="output-spans" id="month-span">--</span>months
+          </div>
+          <div class="day-output">
+            <span class="output-spans" id="day-span">--</span>days
+          </div>
+        </div>
       </div>
     </form>
 
