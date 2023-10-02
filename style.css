@@ -19,17 +19,21 @@ body {
   justify-content: center;
 }
 input {
-  font-size: 32px;
+  font-size: 1.8rem;
+  font-weight: 900;
   outline-color: var(--purple);
   border-radius: 5px;
   border: 1px solid var(--light-grey);
   width: 80%;
+  padding: 3px;
 }
 form {
-  width: auto;
+  max-width: 650px;
   background-color: var(--white);
   border-radius: 15px 15px 80px 15px;
-  margin: 2rem 2rem 2rem 2rem;
+  margin-top: 5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 .button {
   position: absolute;
@@ -44,7 +48,7 @@ form {
   background-color: var(--off-black);
 }
 .outputs {
-  font-size: 32px;
+  font-size: 3rem;
   font-weight: 900;
   font-style: italic;
   margin-top: 5rem;
@@ -55,12 +59,10 @@ form {
 
 .error {
   color: var(--light-red);
-  font-size: 12px;
+  font-size: 0.8rem;
 }
 
 .container {
-  max-width: 650px;
-  border: 2px solid red;
   padding: 1rem;
   margin: 1rem;
 }
@@ -68,6 +70,14 @@ form {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 5rem;
+}
+.day,
+.month,
+.year {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .sub {
   border-bottom: 1px solid var(--light-grey);
