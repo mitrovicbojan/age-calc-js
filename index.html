@@ -20,22 +20,22 @@
         <div class="inputs" id="inputs">
           <div class="day">
             <label id="label">Day</label>
-            <input id="day" placeholder="DD" />
+            <input id="day" placeholder="DD" maxlength="2" />
             <p class="error" id="error-day">Must be a valid day</p>
           </div>
           <div class="month">
             <label id="label">Month</label>
-            <input id="month" placeholder="MM" />
+            <input id="month" placeholder="MM" maxlength="2" />
             <p class="error" id="error-month">Must be a valid month</p>
           </div>
           <div class="year">
             <label id="label">Year</label>
-            <input id="year" placeholder="YYYY" />
+            <input id="year" placeholder="YYYY" maxlength="4" />
             <p class="error" id="error-year">Must be in the past</p>
           </div>
         </div>
         <div class="sub">
-          <button class="button" id="btn" type="button">
+          <button class="button" id="btn" type="button" onclick="dateCalc()">
             <img
               src="./assets/images/icon-arrow.svg"
               alt="arrow"

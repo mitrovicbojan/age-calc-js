@@ -46,6 +46,7 @@ form {
 }
 .button:hover {
   background-color: var(--off-black);
+  transition: 0.3s ease-in-out;
 }
 .outputs {
   font-size: 3rem;
@@ -71,6 +72,10 @@ form {
   justify-content: space-around;
   align-items: center;
   margin-bottom: 5rem;
+}
+label {
+  color: var(--smokey-grey);
+  font-weight: 700;
 }
 .day,
 .month,
