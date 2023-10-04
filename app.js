@@ -15,4 +15,6 @@ errorYear.style.display = "None";
 function dateCalc() {
   let newDay = dayInput.value;
   dayOutput.innerHTML = newDay;
+  let currentDate = new Date();
+  console.log(currentDate);
 }

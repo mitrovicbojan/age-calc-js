@@ -30,7 +30,7 @@ input {
 form {
   max-width: 650px;
   background-color: var(--white);
-  border-radius: 15px 15px 80px 15px;
+  border-radius: 15px 15px 150px 15px;
   margin-top: 5rem;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
