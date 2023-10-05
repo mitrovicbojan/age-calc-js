@@ -17,4 +17,18 @@ function dateCalc() {
   dayOutput.innerHTML = newDay;
   let currentDate = new Date();
   console.log(currentDate);
+
+  let input =
+    `${monthInput.value}` +
+    "/" +
+    `${dayInput.value}` +
+    "/" +
+    `${yearInput.value}`;
+  console.log(input);
+  let inputDate = new Date(input);
+  console.log(inputDate);
+  let myYear = inputDate.getFullYear();
+  let myMonth = inputDate.getMonth();
+  console.log(myYear);
+  console.log(myMonth);
 }
