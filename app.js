@@ -13,22 +13,20 @@ errorMonth.style.display = "None";
 errorYear.style.display = "None";
 
 function dateCalc() {
-  let newDay = dayInput.value;
-  dayOutput.innerHTML = newDay;
   let currentDate = new Date();
-  console.log(currentDate);
-
+  let currentYear = currentDate.getFullYear();
+  let currentMonth = currentDate.getMonth();
+  let currentDay = currentDate.getDate();
   let input =
     `${monthInput.value}` +
     "/" +
     `${dayInput.value}` +
     "/" +
     `${yearInput.value}`;
-  console.log(input);
+
   let inputDate = new Date(input);
-  console.log(inputDate);
-  let myYear = inputDate.getFullYear();
-  let myMonth = inputDate.getMonth();
-  console.log(myYear);
-  console.log(myMonth);
+
+  let inputYear = inputDate.getFullYear();
+  let inputMonth = inputDate.getMonth();
+  let inputDay = inputDate.getDate();
 }
