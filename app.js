@@ -17,6 +17,7 @@ function dateCalc() {
   let currentYear = currentDate.getFullYear();
   let currentMonth = currentDate.getMonth();
   let currentDay = currentDate.getDate();
+
   let input =
     `${monthInput.value}` +
     "/" +
@@ -29,4 +30,27 @@ function dateCalc() {
   let inputYear = inputDate.getFullYear();
   let inputMonth = inputDate.getMonth();
   let inputDay = inputDate.getDate();
+
+  let resultYear = currentYear - inputYear;
+  let resultMonth = currentMonth - inputMonth;
+  let resultDay = currentDay - inputDay;
+
+  if (resultYear < 0) {
+    errorYear.style.display = "Block";
+  } else if (resultMonth > 0) {
+    yearOutput.innerHTML = resultYear;
+    monthOutput.innerHTML = resultMonth;
+  } else {
+    resultYear = resultYear - 1;
+    if (resultMonth <= 0) monthOutput.innerHTML = resultMonth;
+    if (resultDay > 0) resultMonth = 12 + resultMonth;
+    else resultMonth = 11 - resultMonth;
+    dayOutput.innerHTML = resultDay;
+  }
+  if (resultDay < 0) {
+    resultDay = 30 + resultDay;
+    resultMonth -= 1;
+    monthOutput.innerHTML = resultMonth;
+  }
+  dayOutput.innerHTML = resultDay;
 }
