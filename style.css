@@ -58,20 +58,21 @@ form {
   color: var(--purple);
 }
 
-.error {
-  color: var(--light-red);
-  font-size: 0.8rem;
-}
-
 .container {
   padding: 1rem;
   margin: 1rem;
 }
 .inputs {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
   margin-bottom: 5rem;
+}
+.error {
+  color: var(--light-red);
+  font-size: 0.8rem;
+  border: 2px solid green;
+  display: none;
 }
 label {
   color: var(--smokey-grey);
