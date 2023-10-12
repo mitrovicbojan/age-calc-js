@@ -8,9 +8,9 @@ let yearOutput = document.getElementById("year-span");
 let monthOutput = document.getElementById("month-span");
 let dayOutput = document.getElementById("day-span");
 
-// errorDay.style.display = "None";
-// errorMonth.style.display = "None";
-// errorYear.style.display = "None";
+errorDay.style.display = "None";
+errorMonth.style.display = "None";
+errorYear.style.display = "None";
 
 function dateCalc() {
   let currentDate = new Date();

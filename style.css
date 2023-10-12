@@ -69,9 +69,11 @@ form {
   margin-bottom: 5rem;
 }
 .error {
+  position: absolute;
+  top: 180px;
   color: var(--light-red);
-  font-size: 0.8rem;
-  border: 2px solid green;
+  font-size: 0.56rem;
+
   display: none;
 }
 label {
@@ -90,4 +92,9 @@ label {
   margin-top: 25px;
   display: flex;
   justify-content: center;
+}
+@media only screen and (max-width: 375px) {
+  .error {
+    font-size: 0.54rem;
+  }
 }
