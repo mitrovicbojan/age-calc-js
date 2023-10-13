@@ -35,8 +35,14 @@ function dateCalc() {
   let resultMonth = currentMonth - inputMonth;
   let resultDay = currentDay - inputDay;
 
+  if (inputMonth > 12) {
+    monthInput.style.borderColor = "var(--light-red)";
+    errorMonth.style.display = "Block";
+  }
+
   if (resultYear < 0) {
     errorYear.style.display = "Block";
+    yearInput.style.borderColor = "var(--light-red)";
   } else if (resultMonth > 0) {
     yearOutput.innerHTML = resultYear;
     monthOutput.innerHTML = resultMonth;
