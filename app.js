@@ -40,6 +40,11 @@ function dateCalc() {
     errorMonth.style.display = "Block";
   }
 
+  if (Number(dayInput.value) > 31) {
+    dayInput.style.borderColor = "var(--light-red)";
+    errorDay.style.display = "Block";
+  }
+
   if (resultYear < 0) {
     errorYear.style.display = "Block";
     yearInput.style.borderColor = "var(--light-red)";
