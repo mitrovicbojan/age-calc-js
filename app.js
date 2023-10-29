@@ -7,10 +7,15 @@ let yearInput = document.getElementById("year");
 let yearOutput = document.getElementById("year-span");
 let monthOutput = document.getElementById("month-span");
 let dayOutput = document.getElementById("day-span");
-
 errorDay.style.display = "None";
 errorMonth.style.display = "None";
 errorYear.style.display = "None";
+
+// var a = moment();
+
+// let res = a.diff("2000-05-12");
+
+// console.log(res);
 
 function dateCalc() {
   let currentDate = new Date();
@@ -26,6 +31,10 @@ function dateCalc() {
     `${yearInput.value}`;
 
   let inputDate = new Date(input);
+
+  var a = moment();
+  let res = a.duration(inputDate);
+  console.log(res);
 
   let inputYear = inputDate.getFullYear();
   let inputMonth = inputDate.getMonth();
@@ -62,6 +71,22 @@ function dateCalc() {
     resultDay = 30 + resultDay;
     resultMonth -= 1;
     monthOutput.innerHTML = resultMonth;
+    dayOutput.innerHTML = resultDay;
   }
-  dayOutput.innerHTML = resultDay;
 }
+
+function dateDiffInDays(a, b) {
+  const _MS_PER_DAY = 1000 * 60 * 60 * 24;
+  // Discard the time and time-zone information.
+  const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+  const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+
+  return Math.floor((utc2 - utc1) / _MS_PER_DAY);
+}
+
+// test it
+const a = new Date("2017-01-01"),
+  b = new Date("2017-07-25"),
+  difference = dateDiffInDays(a, b);
+
+console.log(difference + " days");
