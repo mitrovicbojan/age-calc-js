@@ -33,9 +33,17 @@ function dateCalc() {
   let inputDate = new Date(input);
 
   var a = moment();
-  let res = a.duration(inputDate);
+  let res = a.diff(inputDate, "days");
   console.log(res);
-
+  let yearDiff = res /365;
+  let restYearDiff = res - (yearDiff* 365);
+  let monthDiff =restYearDiff /30;
+  let restMonthDiff = monthDiff restYearDiff *30
+  let dayDiff = 
+  if(yearDiff < 1) {
+    monthDiff = res / 30;
+    restMonthDiff = res - (monthDiff * 30)
+  }
   let inputYear = inputDate.getFullYear();
   let inputMonth = inputDate.getMonth();
   let inputDay = inputDate.getDate();
