@@ -11,18 +11,7 @@ errorDay.style.display = "None";
 errorMonth.style.display = "None";
 errorYear.style.display = "None";
 
-// var a = moment();
-
-// let res = a.diff("2000-05-12");
-
-// console.log(res);
-
 function dateCalc() {
-  let currentDate = new Date();
-  let currentYear = currentDate.getFullYear();
-  let currentMonth = currentDate.getMonth();
-  let currentDay = currentDate.getDate();
-
   let input =
     `${monthInput.value}` +
     "/" +
@@ -34,67 +23,14 @@ function dateCalc() {
 
   var a = moment();
   let res = a.diff(inputDate, "days");
-  console.log(res);
-  let yearDiff = res /365;
-  let restYearDiff = res - (yearDiff* 365);
-  let monthDiff =restYearDiff /30;
-  let restMonthDiff = monthDiff restYearDiff *30
-  let dayDiff = 
-  if(yearDiff < 1) {
-    monthDiff = res / 30;
-    restMonthDiff = res - (monthDiff * 30)
-  }
-  let inputYear = inputDate.getFullYear();
-  let inputMonth = inputDate.getMonth();
-  let inputDay = inputDate.getDate();
 
-  let resultYear = currentYear - inputYear;
-  let resultMonth = currentMonth - inputMonth;
-  let resultDay = currentDay - inputDay;
+  let yearDiff = res / 365;
 
-  if (inputMonth > 12) {
-    monthInput.style.borderColor = "var(--light-red)";
-    errorMonth.style.display = "Block";
-  }
+  let rsYearDiff = res - Math.floor(yearDiff) * 365;
+  let monthDiff = rsYearDiff / 30;
+  let dayDiff = rsYearDiff - Math.floor(monthDiff) * 30;
 
-  if (Number(dayInput.value) > 31) {
-    dayInput.style.borderColor = "var(--light-red)";
-    errorDay.style.display = "Block";
-  }
-
-  if (resultYear < 0) {
-    errorYear.style.display = "Block";
-    yearInput.style.borderColor = "var(--light-red)";
-  } else if (resultMonth > 0) {
-    yearOutput.innerHTML = resultYear;
-    monthOutput.innerHTML = resultMonth;
-  } else {
-    resultYear = resultYear - 1;
-    if (resultMonth <= 0) monthOutput.innerHTML = resultMonth;
-    if (resultDay > 0) resultMonth = 12 + resultMonth;
-    else resultMonth = 11 - resultMonth;
-    dayOutput.innerHTML = resultDay;
-  }
-  if (resultDay < 0) {
-    resultDay = 30 + resultDay;
-    resultMonth -= 1;
-    monthOutput.innerHTML = resultMonth;
-    dayOutput.innerHTML = resultDay;
-  }
+  yearOutput.innerHTML = Math.floor(yearDiff);
+  monthOutput.innerHTML = Math.floor(monthDiff);
+  dayOutput.innerHTML = dayDiff;
 }
-
-function dateDiffInDays(a, b) {
-  const _MS_PER_DAY = 1000 * 60 * 60 * 24;
-  // Discard the time and time-zone information.
-  const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
-  const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
-
-  return Math.floor((utc2 - utc1) / _MS_PER_DAY);
-}
-
-// test it
-const a = new Date("2017-01-01"),
-  b = new Date("2017-07-25"),
-  difference = dateDiffInDays(a, b);
-
-console.log(difference + " days");
