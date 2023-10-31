@@ -34,3 +34,18 @@ function dateCalc() {
   monthOutput.innerHTML = Math.floor(monthDiff);
   dayOutput.innerHTML = dayDiff;
 }
+
+// Additionally, you can use moment#invalidAt to determine which date unit overflowed.
+
+// var m = moment("2011-10-10T10:20:90");
+// m.isValid(); // false
+// m.invalidAt(); // 5 for seconds
+// The return value has the following meaning:
+
+// years
+// months
+// days
+// hours
+// minutes
+// seconds
+// milliseconds
