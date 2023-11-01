@@ -11,6 +11,10 @@ errorDay.style.display = "None";
 errorMonth.style.display = "None";
 errorYear.style.display = "None";
 
+let a = moment("2022-12-45");
+console.log(a.isValid());
+console.log(a.invalidAt());
+
 function dateCalc() {
   let input =
     `${monthInput.value}` +
@@ -21,20 +25,12 @@ function dateCalc() {
 
   let inputDate = new Date(input);
   console.log(inputDate);
-  let fullYear = new Date();
-  let a = moment();
-  let b = moment(inputDate).format("YYYY-MM-DD");
-  console.log(b);
-  let validDate = b.invalidAt();
 
-  console.log(validDate);
-  if (validDate == -2) {
-    errorDay.style.display = "Block";
-  } else if (monthInput.value > 12) {
-    errorMonth.style.display = "Block";
-  } else if (yearInput.value > fullYear.getFullYear()) {
-    errorYear.style.display = "Block";
-  }
+  let a = moment();
+  let b = moment(inputDate);
+  console.log(b.toString());
+  console.log(b.isValid());
+  console.log(b.invalidAt());
 
   let res = a.diff(inputDate, "days");
 
