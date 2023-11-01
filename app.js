@@ -20,8 +20,22 @@ function dateCalc() {
     `${yearInput.value}`;
 
   let inputDate = new Date(input);
+  console.log(inputDate);
+  let fullYear = new Date();
+  let a = moment();
+  let b = moment(inputDate).format("YYYY-MM-DD");
+  console.log(b);
+  let validDate = b.invalidAt();
 
-  var a = moment();
+  console.log(validDate);
+  if (validDate == -2) {
+    errorDay.style.display = "Block";
+  } else if (monthInput.value > 12) {
+    errorMonth.style.display = "Block";
+  } else if (yearInput.value > fullYear.getFullYear()) {
+    errorYear.style.display = "Block";
+  }
+
   let res = a.diff(inputDate, "days");
 
   let yearDiff = res / 365;
