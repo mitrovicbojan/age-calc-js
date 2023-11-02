@@ -11,9 +11,13 @@ errorDay.style.display = "None";
 errorMonth.style.display = "None";
 errorYear.style.display = "None";
 
-let a = moment("2022-12-45");
-console.log(a.isValid());
-console.log(a.invalidAt());
+// let a = moment("2022-12-45");
+// console.log(a.isValid());
+// console.log(a.invalidAt());
+
+function sayHi(b) {
+  console.log(b);
+}
 
 function dateCalc() {
   let input =
@@ -23,11 +27,17 @@ function dateCalc() {
     "-" +
     `${dayInput.value}`;
 
+  if (input == "--") {
+    errorDay.style.display = "Block";
+    errorMonth.style.display = "Block";
+    errorYear.style.display = "Block";
+  }
+
   console.log(input);
   let inputDate = new Date(input);
 
   let b = moment(input, "YYYY-MM-DD");
-
+  sayHi(b);
   // let g = b;
   // console.log(b);
 
