@@ -17,20 +17,26 @@ console.log(a.invalidAt());
 
 function dateCalc() {
   let input =
+    `${yearInput.value}` +
+    "-" +
     `${monthInput.value}` +
-    "/" +
-    `${dayInput.value}` +
-    "/" +
-    `${yearInput.value}`;
+    "-" +
+    `${dayInput.value}`;
 
+  console.log(input);
   let inputDate = new Date(input);
-  console.log(inputDate);
+
+  let b = moment(input, "YYYY-MM-DD");
+
+  // let g = b;
+  // console.log(b);
+
+  // console.log(g);
+  let now = moment(b);
+  console.log(now.isValid());
+  console.log(now.invalidAt());
 
   let a = moment();
-  let b = moment(inputDate);
-  console.log(b.toString());
-  console.log(b.isValid());
-  console.log(b.invalidAt());
 
   let res = a.diff(inputDate, "days");
 
