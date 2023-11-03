@@ -15,10 +15,6 @@ errorYear.style.display = "None";
 // console.log(a.isValid());
 // console.log(a.invalidAt());
 
-function sayHi(b) {
-  console.log(b);
-}
-
 function dateCalc() {
   let input =
     `${yearInput.value}` +
@@ -27,21 +23,10 @@ function dateCalc() {
     "-" +
     `${dayInput.value}`;
 
-  if (input == "--") {
-    errorDay.style.display = "Block";
-    errorMonth.style.display = "Block";
-    errorYear.style.display = "Block";
-  }
-
-  console.log(input);
   let inputDate = new Date(input);
 
   let b = moment(input, "YYYY-MM-DD");
-  sayHi(b);
-  // let g = b;
-  // console.log(b);
 
-  // console.log(g);
   let now = moment(b);
   console.log(now.isValid());
   console.log(now.invalidAt());
@@ -49,6 +34,28 @@ function dateCalc() {
   let a = moment();
 
   let res = a.diff(inputDate, "days");
+
+  if (input == "--") {
+    errorDay.style.display = "Block";
+    errorMonth.style.display = "Block";
+    errorYear.style.display = "Block";
+    yearOutput.innerHTML = "--";
+    monthOutput.innerHTML = "--";
+    dayOutput.innerHTML = "--";
+  }
+
+  if (now.invalidAt() == 2) {
+    errorDay.style.display = "Block";
+    yearOutput.innerHTML = "--";
+    monthOutput.innerHTML = "--";
+    dayOutput.innerHTML = "--";
+  }
+  if (monthInput.value > 12) {
+    errorMonth.style.display = "Block";
+    yearOutput.innerHTML = "--";
+    monthOutput.innerHTML = "--";
+    dayOutput.innerHTML = "--";
+  }
 
   let yearDiff = res / 365;
 
