@@ -43,29 +43,35 @@ function dateCalc() {
     monthOutput.innerHTML = "--";
     dayOutput.innerHTML = "--";
   }
+  if ((now.invalidAt() == 2) & (monthInput.value > 12)) {
+    errorDay.style.display = "Block";
+    errorMonth.style.display = "Block";
+    yearOutput.innerHTML = "--";
+    monthOutput.innerHTML = "--";
+    dayOutput.innerHTML = "--";
+  } else {
+    let yearDiff = res / 365;
+
+    let rsYearDiff = res - Math.floor(yearDiff) * 365;
+    let monthDiff = rsYearDiff / 30;
+    let dayDiff = rsYearDiff - Math.floor(monthDiff) * 30;
+
+    yearOutput.innerHTML = Math.floor(yearDiff);
+    monthOutput.innerHTML = Math.floor(monthDiff);
+    dayOutput.innerHTML = dayDiff;
+  }
 
   if (now.invalidAt() == 2) {
     errorDay.style.display = "Block";
     yearOutput.innerHTML = "--";
     monthOutput.innerHTML = "--";
     dayOutput.innerHTML = "--";
-  }
-  if (monthInput.value > 12) {
+  } else if (monthInput.value > 12) {
     errorMonth.style.display = "Block";
     yearOutput.innerHTML = "--";
     monthOutput.innerHTML = "--";
     dayOutput.innerHTML = "--";
   }
-
-  let yearDiff = res / 365;
-
-  let rsYearDiff = res - Math.floor(yearDiff) * 365;
-  let monthDiff = rsYearDiff / 30;
-  let dayDiff = rsYearDiff - Math.floor(monthDiff) * 30;
-
-  yearOutput.innerHTML = Math.floor(yearDiff);
-  monthOutput.innerHTML = Math.floor(monthDiff);
-  dayOutput.innerHTML = dayDiff;
 }
 
 // Additionally, you can use moment#invalidAt to determine which date unit overflowed.
