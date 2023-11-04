@@ -15,6 +15,14 @@ errorYear.style.display = "None";
 // console.log(a.isValid());
 // console.log(a.invalidAt());
 
+// let myNum = 4;
+// let myNxtNum = 5;
+
+// if ((myNum > 2) & (myNxtNum < 8)) {
+//   errorDay.style.display = "Block";
+//   errorMonth.style.display = "Block";
+// }
+
 function dateCalc() {
   let input =
     `${yearInput.value}` +
@@ -35,62 +43,33 @@ function dateCalc() {
 
   let res = a.diff(inputDate, "days");
 
-  // if (input == "--") {
-  //   errorDay.style.display = "Block";
-  //   errorMonth.style.display = "Block";
-  //   errorYear.style.display = "Block";
-  //   yearOutput.innerHTML = "--";
-  //   monthOutput.innerHTML = "--";
-  //   dayOutput.innerHTML = "--";
-  // }
-
-  let chck = now.invalidAt();
-  console.log(typeof chck);
-  let mVal = Number(monthInput.value);
-  console.log(typeof mVal);
-  if ((chck === 2) & (mVal > 12)) {
+  if (input == "--") {
+    errorDay.style.display = "Block";
+    errorMonth.style.display = "Block";
+    errorYear.style.display = "Block";
+    yearOutput.innerHTML = "--";
+    monthOutput.innerHTML = "--";
+    dayOutput.innerHTML = "--";
+  } else if ((now.invalidAt() == 1) & (Number(monthInput.value) > 12)) {
     errorDay.style.display = "Block";
     errorMonth.style.display = "Block";
     yearOutput.innerHTML = "--";
     monthOutput.innerHTML = "--";
     dayOutput.innerHTML = "--";
+  } else if (now.invalidAt() == 2) {
+    errorDay.style.display = "Block";
+    yearOutput.innerHTML = "--";
+    monthOutput.innerHTML = "--";
+    dayOutput.innerHTML = "--";
+  } else {
+    let yearDiff = res / 365;
+
+    let rsYearDiff = res - Math.floor(yearDiff) * 365;
+    let monthDiff = rsYearDiff / 30;
+    let dayDiff = rsYearDiff - Math.floor(monthDiff) * 30;
+
+    yearOutput.innerHTML = Math.floor(yearDiff);
+    monthOutput.innerHTML = Math.floor(monthDiff);
+    dayOutput.innerHTML = dayDiff;
   }
-  // } else {
-  //   let yearDiff = res / 365;
-
-  //   let rsYearDiff = res - Math.floor(yearDiff) * 365;
-  //   let monthDiff = rsYearDiff / 30;
-  //   let dayDiff = rsYearDiff - Math.floor(monthDiff) * 30;
-
-  //   yearOutput.innerHTML = Math.floor(yearDiff);
-  //   monthOutput.innerHTML = Math.floor(monthDiff);
-  //   dayOutput.innerHTML = dayDiff;
-  // }
-
-  // if (now.invalidAt() == 2) {
-  //   errorDay.style.display = "Block";
-  //   yearOutput.innerHTML = "--";
-  //   monthOutput.innerHTML = "--";
-  //   dayOutput.innerHTML = "--";
-  // } else if (monthInput.value > 12) {
-  //   errorMonth.style.display = "Block";
-  //   yearOutput.innerHTML = "--";
-  //   monthOutput.innerHTML = "--";
-  //   dayOutput.innerHTML = "--";
-  // }
 }
-
-// Additionally, you can use moment#invalidAt to determine which date unit overflowed.
-
-// var m = moment("2011-10-10T10:20:90");
-// m.isValid(); // false
-// m.invalidAt(); // 5 for seconds
-// The return value has the following meaning:
-
-// years
-// months
-// days
-// hours
-// minutes
-// seconds
-// milliseconds
