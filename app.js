@@ -7,21 +7,20 @@ let yearInput = document.getElementById("year");
 let yearOutput = document.getElementById("year-span");
 let monthOutput = document.getElementById("month-span");
 let dayOutput = document.getElementById("day-span");
+const errorInputs = document.querySelectorAll("input");
+const errorlabels = document.querySelectorAll("label");
 errorDay.style.display = "None";
 errorMonth.style.display = "None";
 errorYear.style.display = "None";
 
-// let a = moment("2022-12-45");
-// console.log(a.isValid());
-// console.log(a.invalidAt());
-
-// let myNum = 4;
-// let myNxtNum = 5;
-
-// if ((myNum > 2) & (myNxtNum < 8)) {
-//   errorDay.style.display = "Block";
-//   errorMonth.style.display = "Block";
-// }
+function handleError() {
+  errorInputs.forEach((element) => {
+    element.classList.add("errors");
+  });
+  errorlabels.forEach((element) => {
+    element.classList.add("labelError");
+  });
+}
 
 function dateCalc() {
   let input =
@@ -32,12 +31,11 @@ function dateCalc() {
     `${dayInput.value}`;
 
   let inputDate = new Date(input);
+  let currentYear = new Date();
 
   let b = moment(input, "YYYY-MM-DD");
 
   let now = moment(b);
-  console.log(now.isValid());
-  console.log(now.invalidAt());
 
   let a = moment();
 
@@ -47,20 +45,26 @@ function dateCalc() {
     errorDay.style.display = "Block";
     errorMonth.style.display = "Block";
     errorYear.style.display = "Block";
-    yearOutput.innerHTML = "--";
-    monthOutput.innerHTML = "--";
-    dayOutput.innerHTML = "--";
+    handleError();
+  } else if (
+    (now.invalidAt() == 1) &
+    (Number(monthInput.value) > 12) &
+    (currentYear.getFullYear() < inputDate.getFullYear())
+  ) {
+    errorDay.style.display = "Block";
+    errorMonth.style.display = "Block";
+    errorYear.style.display = "Block";
+    handleError();
   } else if ((now.invalidAt() == 1) & (Number(monthInput.value) > 12)) {
     errorDay.style.display = "Block";
     errorMonth.style.display = "Block";
-    yearOutput.innerHTML = "--";
-    monthOutput.innerHTML = "--";
-    dayOutput.innerHTML = "--";
+    handleError();
   } else if (now.invalidAt() == 2) {
     errorDay.style.display = "Block";
-    yearOutput.innerHTML = "--";
-    monthOutput.innerHTML = "--";
-    dayOutput.innerHTML = "--";
+    handleError();
+  } else if (currentYear.getFullYear() < inputDate.getFullYear()) {
+    errorYear.style.display = "Block";
+    handleError();
   } else {
     let yearDiff = res / 365;
 

@@ -27,6 +27,12 @@ input {
   width: 80%;
   padding: 3px;
 }
+.errors {
+  border: 1px solid var(--light-red);
+}
+.labelError {
+  color: var(--light-red);
+}
 form {
   max-width: 650px;
   background-color: var(--white);
